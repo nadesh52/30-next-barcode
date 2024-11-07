@@ -1,4 +1,5 @@
 import { BarcodeProvider } from "@/contexts/BarcodeContext";
+import { PageSetupProvider } from "@/contexts/SetupContext";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" data-theme="dim">
       <body>
-        <BarcodeProvider>{children}</BarcodeProvider>
+        <PageSetupProvider>
+          <BarcodeProvider>{children}</BarcodeProvider>
+        </PageSetupProvider>
       </body>
     </html>
   );
